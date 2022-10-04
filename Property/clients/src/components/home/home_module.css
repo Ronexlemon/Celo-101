@@ -1,0 +1,54 @@
+.MainHomeDiv{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background:url("../assets/back.jpg");
+    background-size: 100%;
+   
+    
+}
+.AboutTheApp{
+    width:50%; margin-left: 10px ; background-color: orange;
+    height: 75%;
+    border-radius: 15px;
+    float:left; 
+    margin-top: 20px;
+              
+                
+}
+.buttonAdd{
+    float:left;
+    margin-right:50%;
+}
+.formAdd{
+    display: none;
+    float: right;
+    margin-bottom:75px auto;
+    height: 250px;
+    padding-right: 50px;
+    padding: 50px;
+    margin-top: 10px;
+    margin-right: 10px;
+    border-radius: 15px;
+    width: 200px;
+
+   
+    background-color: blanchedalmond;
+}
+.buttons{
+    margin-top: 20px;
+    
+}
+#btnclose{
+    color: brown;
+    background-color: rgb(140, 113, 113);
+    margin-right: 30px;
+}
+#btnopen{
+    color: rgb(47, 230, 105);
+    background-color: rgb(140, 113, 113);
+}
+.header{
+    float: right;
+    margin: 15px;
+}
