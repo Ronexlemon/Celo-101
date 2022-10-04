@@ -40,7 +40,7 @@ const Home = ()=>{
           notification("⚠️ Please approve this DApp to use it.")
           try {
             await window.celo.enable()
-            alert("Window is celo");
+           
       
             const web3 = new Web3(window.celo);
             kit = newKitFromWeb3(web3);
@@ -85,7 +85,7 @@ const Home = ()=>{
       }
       const getTotalLength = async()=>{
         const    _propertyLength= await contract.methods.propertyLength().call();
-        alert(_propertyLength);
+        
       }
     //()=>navigate("/DisplayProperty")
     const openForm = ()=>{
@@ -94,10 +94,10 @@ const Home = ()=>{
     }
     const closeForm = ()=>{
         formref.current.style.display ="none"
-        alert(propertyname)
+       
     }
    useEffect(()=>{
-    notification("⌛ Loading...");
+    //notification("⌛ Loading...");
     const fetchData =async()=>{
       await  connectCeloWallet(); 
        await  getBalance();
@@ -117,7 +117,7 @@ const Home = ()=>{
 <div  className="MainHomeDiv">
 <header className="header">balance<h1>{account}</h1></header>
     <div className="AboutTheApp">
-        <h2>A property description is the written portion of a real estate listing that describes the details of a home for sale or lease. Descriptions account for roughly one-third of a listing and are accompanied by property information (i.e. the number of bedrooms) and photographs</h2>
+       <p><h2>A property the written portion of a real estate </h2></p> <p><h2>listing that describes the details of a home for sale or lease.</h2></p><p><h2> Cars and other Properties included account for roughly one-third </h2></p> <p><h2>of a listing and are accompanied by property information (i.e. the number of bedrooms) and photographs</h2></p>
 
     </div>
     <div ref={formref} className="formAdd">
@@ -143,7 +143,7 @@ const Home = ()=>{
     </div>
     <div className="buttonAdd">
 <button onClick={openForm}>Add Property</button>
-<button onClick={()=>navigate("/DisplayProperty")}>Show</button>
+<button onClick={()=>navigate("/DisplayProperty")}>Show Property</button>
     </div>
 
 </div>
