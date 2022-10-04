@@ -7,5 +7,7 @@ Requirements:<br/>
 celo wallet -> celo wallet extension<br/>
 ........................................<br/>
 celo faucet -> to get cello tokens <br/>
+..........................................<br/>
+link to the application : https://celo101.vercel.app/
 
 
