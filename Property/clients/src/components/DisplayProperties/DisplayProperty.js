@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect,useState,useRef,useCallback } from "react";
 import Web3 from 'web3'
 import Abi from "../contract.abi.json";
+import erc20 from "../erc20.abi.json";
 import DisplayTemplate from "./DisplayTemplate"
 // //import { newKitFromWeb3 } from '@celo/contractkit'
 import {newKitFromWeb3} from "@celo/contractkit"
@@ -11,6 +12,7 @@ import {newKitFromWeb3} from "@celo/contractkit"
 // const Web3 = require("web3");
 // const newKitFromWeb3 = require("@celo/contractkit");
 
+
 const ERC20_DECIMALS = 18
 
 let kit
@@ -18,6 +20,7 @@ let contract
 
 const DisplayProperty =()=>{
     const contractAddress= "0xcAb2bd12D75770e69e445e6Ef01583e0e6171f89"//"0x1939b8F5C4001cDBB419Ed7b597DC371a76dA65a";
+    const cUSDContract = "0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1"
     const [properties,setproperties] = useState([]);
     const connectCeloWallet = async function () {
         if (window.celo) {
@@ -43,6 +46,25 @@ const DisplayProperty =()=>{
       }
       const notification =(_text)=>{
         alert(_text);
+      }
+      //function delete property
+      const deleteProperty =async(_index)=>{
+       try{
+        await contract.methods.deleteProperty(_index).send({from: kit.defaultAccount});
+       }catch(error){
+        console.log(error);
+        alert(error);
+       }
+      }
+      //function buy property
+      const buyProperty =async (_index)=>{
+        const cusdContract = new  kit.web3.eth.Contract(erc20,cUSDContract);
+        const cost = properties[_index].price;
+        await cusdContract.methods.approve(contractAddress,cost).send({from : kit.defaultAccount});
+
+
+         await contract.methods.buyProperty(_index).send({from: kit.defaultAccount});
+
       }
     //getAllProperties
     const getAllProperties = useCallback( async() =>{
@@ -87,7 +109,7 @@ const DisplayProperty =()=>{
             
         //   });
     return <div>
-        <DisplayTemplate properties={properties}/>
+        <DisplayTemplate properties={properties} buyProperty={buyProperty} deleteProperty={deleteProperty}/>
     </div>
 }
 export default DisplayProperty;

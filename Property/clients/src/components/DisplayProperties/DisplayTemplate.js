@@ -10,7 +10,7 @@ const DisplayTemplate =(props) =>{
         <div className='tenderCardHeader' id='tenderCardHeader'>
           <div className="tenderCardHeader-blank"></div>
           <div className="tenderCardHeader-content">
-          <img src={property.image} alt="Transparent Red Jeep Clipart - Audi R8 Car Png, Png Download@kindpng.com"/>
+          <img className="images" src={property.image} alt="no image"/>
             
             <p id='tender-description' className='tender-amount-description-p'>{property.descriptions}</p>
             <p id='tender-amount' className='tender-amount-description-p'>Proprty worth: {property.price / 1000000000000}</p>
@@ -21,8 +21,9 @@ const DisplayTemplate =(props) =>{
         </div>
         <div className='bid-btn' id='bid-btn-approve-btn'>
 
-          <button className='btn-bid'  id='btn-bid' >BUY</button>
-
+          <button className='btn-bid'  id='btn-bid'  onClick={()=>props.buyProperty(property.index)}>BUY</button>
+          <button className='btn-bid'  id='btn-bid'  onClick={()=>props.deleteProperty(index)}>DEL</button>
+          
         </div>
 
 
