@@ -13,7 +13,7 @@ const DisplayTemplate =(props) =>{
           <img className="images" src={property.image} alt="no image"/>
             
             <p id='tender-description' className='tender-amount-description-p'>{property.descriptions}</p>
-            <p id='tender-amount' className='tender-amount-description-p'>Proprty worth: {property.price / 1000000000000}</p>
+            <p id='tender-amount' className='tender-amount-description-p'>Proprty worth: {property.price / 1000000000000} cUSD</p>
           </div>
         </div>
         <div className='tenderCard-middle' id='tendercard-middle'>

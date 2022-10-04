@@ -27,7 +27,7 @@ const DisplayProperty =()=>{
           notification("⚠️ Please approve this DApp to use it.")
           try {
             await window.celo.enable()
-            alert("Window is celo");
+            
       
             const web3 = new Web3(window.celo);
             kit = newKitFromWeb3(web3);
@@ -92,7 +92,7 @@ const DisplayProperty =()=>{
   }, [contract]);
 
         useEffect(()=>{
-            notification("⌛ Loading...");
+           // notification("⌛ Loading...");
             const fetchData =async()=>{
                 await connectCeloWallet();
                await getAllProperties();
