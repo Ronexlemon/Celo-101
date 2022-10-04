@@ -1,0 +1,12 @@
+.PropertyCard{
+    background-color: rgb(220, 137, 48);
+    height: 300px;
+    width: 25%;
+    display:inline-block;
+  vertical-align:middle;
+    margin: 5%;
+}
+img {
+    max-width:100%;
+    height:auto;
+}
