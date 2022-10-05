@@ -17,7 +17,7 @@ let kit
 let contract
 
 const Home = ()=>{
-    const contractAddress= "0xcAb2bd12D75770e69e445e6Ef01583e0e6171f89";//"0x1939b8F5C4001cDBB419Ed7b597DC371a76dA65a";
+    const contractAddress= "0x29eec3EF226D3b5546566500B244c4a4d0e09EB7"//"0xcAb2bd12D75770e69e445e6Ef01583e0e6171f89";//"0x1939b8F5C4001cDBB419Ed7b597DC371a76dA65a";
     const [account,setAccounts] = useState(0);
     const [properties,setproperties] = useState([]);
     const [propertyname,setpropertyname] = useState('');
