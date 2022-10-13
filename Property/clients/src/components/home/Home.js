@@ -19,7 +19,7 @@ let contract
 const Home = ()=>{
     const contractAddress= "0x29eec3EF226D3b5546566500B244c4a4d0e09EB7"//"0xcAb2bd12D75770e69e445e6Ef01583e0e6171f89";//"0x1939b8F5C4001cDBB419Ed7b597DC371a76dA65a";
     const [account,setAccounts] = useState(0);
-    const [properties,setproperties] = useState([]);
+    
     const [propertyname,setpropertyname] = useState('');
     const [propertyurl,setpropertyurl] = useState('');
     const [propertydescription,setpropertydescription] = useState('');
@@ -73,7 +73,7 @@ const Home = ()=>{
         ]
         notification(`⌛ Adding "${params[0]}"...`);
         try {
-            const result = await contract.methods
+            await contract.methods
               .writeProperty(...params)
               .send({ from: kit.defaultAccount })
           } catch (error) {
@@ -84,7 +84,7 @@ const Home = ()=>{
         
       }
       const getTotalLength = async()=>{
-        const    _propertyLength= await contract.methods.propertyLength().call();
+      await contract.methods.propertyLength().call();
         
       }
     //()=>navigate("/DisplayProperty")
@@ -97,7 +97,7 @@ const Home = ()=>{
        
     }
    useEffect(()=>{
-    //notification("⌛ Loading...");
+
     const fetchData =async()=>{
       await  connectCeloWallet(); 
        await  getBalance();
@@ -107,12 +107,7 @@ const Home = ()=>{
     fetchData();
         
     },[])
-    // window.addEventListener('load', async () => {
-    //     notification("⌛ Loading...")
-    //     await connectCeloWallet()
-    //     await getBalance()
-        
-    //   });
+ 
     return(
 <div  className="MainHomeDiv">
 <header className="header">balance<h1>{account}</h1></header>
