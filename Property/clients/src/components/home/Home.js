@@ -8,6 +8,7 @@ import Abi from "../contract.abi.json";
 import {newKitFromWeb3} from "@celo/contractkit"
 //import {newKitFromWeb3} from "@celo-tools/use-contractkit"
  import BigNumber from "bignumber.js"
+import { ProposalStage } from "@celo/contractkit/lib/wrappers/Governance";
 // const Web3 = require("web3");
 // const newKitFromWeb3 = require("@celo/contractkit");
 
@@ -33,7 +34,13 @@ const Home = ()=>{
 
     }
     const notification=(_test)=>{
+      if(window.celo){
+       console.log("window.celo");
+      }
+      else{
         alert(_test);
+      }
+        
     }
     const connectCeloWallet = async function () {
         if (window.celo) {

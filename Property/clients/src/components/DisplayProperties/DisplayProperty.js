@@ -24,7 +24,7 @@ const DisplayProperty =()=>{
     const [properties,setproperties] = useState([]);
     const connectCeloWallet = async function () {
         if (window.celo) {
-          notification("⚠️ Please approve this DApp to use it.")
+         // notification("⚠️ Please approve this DApp to use it.")
           try {
             await window.celo.enable()
             
@@ -44,8 +44,14 @@ const DisplayProperty =()=>{
           notification("⚠️ Please install the CeloExtensionWallet.")
         }
       }
-      const notification =(_text)=>{
-        alert(_text);
+      const notification=(_test)=>{
+        if(window.celo){
+         console.log("window.celo");
+        }
+        else{
+          alert(_test);
+        }
+          
       }
       //function delete property
       const deleteProperty =async(_index)=>{
@@ -99,7 +105,7 @@ const DisplayProperty =()=>{
                 
             };
             fetchData();
-            alert(properties);
+            //alert(properties);
                 
             },[])
         // window.addEventListener('load', async () => {
